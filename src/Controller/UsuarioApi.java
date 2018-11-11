@@ -13,10 +13,8 @@ import org.json.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import DAO.ExameDao;
 import DAO.UsuarioDao;
 import Utils.Utilitys;
-import VO.Exame;
 import VO.Usuario;
 
 /**
