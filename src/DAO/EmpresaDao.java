@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import VO.Empresa;
 
@@ -46,6 +47,17 @@ public class EmpresaDao {
 		PreparedStatement preparedStatement = connection.prepareStatement("delete from Empresa where idEmpresa = ?");
 		preparedStatement.setInt(1, idEmpresa);
 		preparedStatement.executeQuery();
+	}
+	
+	public ArrayList<Empresa> GetAllEmpresa() throws SQLException{
+		PreparedStatement preparedStatement = connection.prepareStatement("Select * from Empresa");
+		ResultSet rs = preparedStatement.executeQuery();
+		ArrayList<Empresa> empList = new ArrayList<>();
+		while(rs.next()) {
+			Empresa emp = new Empresa(rs.getInt("idEmpresa"), rs.getString("nomeFantasia"));
+			empList.add(emp);
+		}
+		return empList;
 	}
 
 }
