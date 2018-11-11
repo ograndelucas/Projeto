@@ -68,5 +68,12 @@ public class UsuarioDao {
 		preparedStatement.setInt(1, idUsuario);
 		preparedStatement.executeQuery();
 	}
+	
+	public void TrocaSenhaUsuario(String senha, int idUsuario) throws SQLException {
+		PreparedStatement preparedStatement = connection.prepareStatement("update Usuario set senha = ? where idUsuario = ?");
+		preparedStatement.setString(1, senha);
+		preparedStatement.setInt(2, idUsuario);
+		preparedStatement.executeQuery();
+	}
 
 }
