@@ -1,6 +1,6 @@
 package VO;
 
-class Usuario {
+public class Usuario {
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
