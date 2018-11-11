@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-class Exame {
+public class Exame {
 
 	public Exame() {
 		// TODO Auto-generated constructor stub
@@ -53,6 +53,22 @@ class Exame {
 		this.descricao = descricao;
 		this.idEmpresa = idEmpresa;
 		this.dataRealiazacao = dataRealiazacao;
+	}
+	
+	public Exame(int idExame, String nomePaciente, String descricao, int idEmpresa, String dataRealizacao) {
+		super();
+		this.idExame = idExame;
+		this.nomePaciente = nomePaciente;
+		this.descricao = descricao;
+		this.idEmpresa = idEmpresa;
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+
+		try { 
+			this.dataRealiazacao= formatter.parse(dataRealizacao);
+		} catch (Exception e) {
+			System.err.println("Ops! Problema com a data: " + dataRealiazacao);
+			e.printStackTrace();			
+		} //try
 	}
 
 	public Exame(String nomePaciente, String descricao, String idEmpresa, String dataRealiazacao) {
